@@ -94,6 +94,10 @@ public class Hand : MonoBehaviour
             }
         }
 
+        var grabbable =  objectBody.GetComponent<GrabbableObject>();
+            if(grabbable.grabbed) return;
+                else grabbable.OnGrab();
+      
         StartCoroutine(GrabObject(grabColliders[0], objectBody));
     }
 
@@ -143,7 +147,9 @@ public class Hand : MonoBehaviour
         _joint2.enableCollision = false;
         _joint2.enablePreprocessing = true;
 
-        _followTarget = controller.transform;
+        _body.constraints = RigidbodyConstraints.None; 
+            _followTarget = controller.transform;
+       
 
     }
 
