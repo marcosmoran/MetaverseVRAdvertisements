@@ -21,6 +21,7 @@ public class EnviromentController : MonoBehaviour
 
     public void DoTransition()
     {
+        RenderSettings.skybox = paradiseSkybox;
         desertEnv.SetActive(false);
         paradiseEnv.SetActive(true);
     }

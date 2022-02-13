@@ -95,8 +95,12 @@ public class Hand : MonoBehaviour
         }
 
         var grabbable =  objectBody.GetComponent<GrabbableObject>();
-            if(grabbable.grabbed) return;
-                else grabbable.OnGrab();
+        if (grabbable.grabbed)
+        {
+            Debug.Log("grabbable is already grabbed");
+            return;
+        }
+        else grabbable.OnGrab();
       
         StartCoroutine(GrabObject(grabColliders[0], objectBody));
     }

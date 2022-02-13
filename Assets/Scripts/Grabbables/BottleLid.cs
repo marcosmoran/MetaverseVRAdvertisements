@@ -7,9 +7,11 @@ public class BottleLid : GrabbableObject
 {
     // Start is called before the first frame update
     private FixedJoint _joint;
-    void Start()
+    [SerializeField] private GrabbableObject bottle;
+    public override void Start()
     {
         _joint = GetComponent<FixedJoint>();
+     
     }
 
     // Update is called once per frame
@@ -25,6 +27,8 @@ public class BottleLid : GrabbableObject
 
     public override void OnGrab()
     {
+        
+        
         Debug.Log("lid grabbed");
         _joint.breakForce = 1;
     }
